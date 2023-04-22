@@ -14,7 +14,6 @@
     place-content: center;
     row-gap: 20px;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
 }
 
 
@@ -51,22 +50,28 @@
 }
 
 .login-page .inputs input:focus {
-    border-color: #00a2ff;
+    border-color: #2542A6;
 }
 
 .login-page button {
     padding: 10px 14px;
     border-radius: 8px;
-    background-color: #00a2ff;
+    background-color: #2542A6;
     color: #FFF;
     font-weight: 600;
     font-size: 1.1em;
     border: none;
     cursor: pointer;
     width: 100%;
-    transition: 0.2s ease;
 }
 
+
 .login-page button:hover {
-    background-color: #0092e7;
+    transform: translateY(-8px);
+    box-shadow: 0 8px 0 #152664;
 }   
+
+.login-page button:active {
+    transform: translateY(0);
+    box-shadow: 0 0 0 #152664;
+}
