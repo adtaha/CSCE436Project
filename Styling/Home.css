@@ -86,7 +86,7 @@
     cursor: pointer; 
 }
 
-.home-page #announce:hover {
+.home-page #announce:hover, .home-page #announce:focus {
     transform: translateY(-8px);
     box-shadow: 0 8px 0 #152664;
 }   
