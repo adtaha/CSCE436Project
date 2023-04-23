@@ -1,4 +1,4 @@
-     
+
 
 // function onOpenCvReady() {
 //   cv['onRuntimeInitialized'] = () => {
@@ -14,15 +14,15 @@
 //                 console.log('An error occurred: ' + err);
 //               });
 
-              
+
 //               var cap = new cv.VideoCapture(video);
 //               let gray = new cv.Mat();          // another empty image (single channel)
 //               let faces = new cv.RectVector();  // to hold the face coordinates
 //               let classifier = new cv.CascadeClassifier(); // opencv's powerful haarCascadeClassifier
-              
+
 //               let utils = new Utils('errorMessage');  // to show errors
 //               let faceCascadeFile = 'haarcascade_frontalface_default.xml'; // path to xml
-              
+
 //               utils.createFileFromUrl(faceCascadeFile, faceCascadeFile, () => {
 //                 classifier.load(faceCascadeFile); // in the callback, load the cascade from file 
 //               });
@@ -31,7 +31,7 @@
 //             console.log(cv);
 
 //             var frame = new cv.Mat(video.height, video.width, cv.CV_8UC4);
-            
+
 
 //             setInterval(function () {
 //               cap.read(frame);
@@ -102,39 +102,39 @@ function onloadCallback() {
     startAndStop.innerText = "streaming";
 
 
-  /* Your code starts here */
-  // get the video element
-  //---your code---//
-  let video = document.getElementById("livestream")
+    /* Your code starts here */
+    // get the video element
+    //---your code---//
+    let video = document.getElementById("livestream")
 
 
-  // create two empty 8bit 4 channel images: src and dst
-  //---your code---//
-  let src = new cv.Mat(video.height, video.width, cv.CV_8UC4);
-  let dst = new cv.Mat(video.height, video.width, cv.CV_8UC1);
+    // create two empty 8bit 4 channel images: src and dst
+    //---your code---//
+    let src = new cv.Mat(video.height, video.width, cv.CV_8UC4);
+    let dst = new cv.Mat(video.height, video.width, cv.CV_8UC1);
 
-  
-  // fetch video capture from the video element
-  //---your code---//
-  let cap = new cv.VideoCapture(video);
 
-  /* Your code ends here */
+    // fetch video capture from the video element
+    //---your code---//
+    let cap = new cv.VideoCapture(video);
 
-  
-  let gray = new cv.Mat();          // another empty image (single channel)
-  let faces = new cv.RectVector();  // to hold the face coordinates
-  let classifier = new cv.CascadeClassifier(); // opencv's powerful haarCascadeClassifier
-  
-  let utils = new Utils('errorMessage');  // to show errors
-  let faceCascadeFile = "haarcascade_frontalface_default.xml"; // path to xml
-  
-  utils.createFileFromUrl(faceCascadeFile, faceCascadeFile, () => {
-    classifier.load(faceCascadeFile); // in the callback, load the cascade from file 
-  });
+    /* Your code ends here */
 
-  const FPS = 30;
 
-  function processVideo() {
+    let gray = new cv.Mat();          // another empty image (single channel)
+    let faces = new cv.RectVector();  // to hold the face coordinates
+    let classifier = new cv.CascadeClassifier(); // opencv's powerful haarCascadeClassifier
+
+    let utils = new Utils('errorMessage');  // to show errors
+    let faceCascadeFile = "haarcascade_frontalface_default.xml"; // path to xml
+
+    utils.createFileFromUrl(faceCascadeFile, faceCascadeFile, () => {
+      classifier.load(faceCascadeFile); // in the callback, load the cascade from file 
+    });
+
+    const FPS = 30;
+
+    function processVideo() {
       let begin = Date.now();
 
       /* Your code starts here */
@@ -142,7 +142,7 @@ function onloadCallback() {
       // read a frame to the src
       // use cap.read() method
       //---your code---//
-      cap.read(src) 
+      cap.read(src)
 
 
       // copy src image to dst so that we have one copy
@@ -167,17 +167,17 @@ function onloadCallback() {
 
       // if we got any face then draw a rectange over it
       for (let i = 0; i < faces.size(); ++i) {
-          let face = faces.get(i);
-          let point1 = new cv.Point(face.x, face.y);
-          let point2 = new cv.Point(face.x + face.width, face.y + face.height);
+        let face = faces.get(i);
+        let point1 = new cv.Point(face.x, face.y);
+        let point2 = new cv.Point(face.x + face.width, face.y + face.height);
 
-          // draw a rectangle between point1 and point2 over your dst image
-          // use cv.rectangle(destinationImage, point1, point2, [R, G, B, Alpha]);
-          // in opencv [R, G, B, Alpha] values ranges from 0 to 255
-          //---your code---//
-          cv.rectangle(dst, point1, point2, [255, 0, 0, 255]);
+        // draw a rectangle between point1 and point2 over your dst image
+        // use cv.rectangle(destinationImage, point1, point2, [R, G, B, Alpha]);
+        // in opencv [R, G, B, Alpha] values ranges from 0 to 255
+        //---your code---//
+        cv.rectangle(dst, point1, point2, [255, 0, 0, 255]);
       }
-      
+
 
       // show the dst image on your cavasOutput
       // use cv.imshow() method
@@ -188,16 +188,16 @@ function onloadCallback() {
 
       /* Your code ends here */
 
-      
+
       // schedule next one.
-      let delay = 1000/FPS - (Date.now() - begin);
+      let delay = 1000 / FPS - (Date.now() - begin);
       setTimeout(processVideo, delay);
-}
+    }
 
 
-  // schedule first one.
-  setTimeout(processVideo, 0);
-}
+    // schedule first one.
+    setTimeout(processVideo, 0);
+  }
 
 }
 
