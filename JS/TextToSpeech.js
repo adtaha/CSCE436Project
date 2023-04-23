@@ -8,9 +8,10 @@ let i = 0
 announceBtn.addEventListener('click', e => {
     emotions[i].forEach(emotion => tts(emotion))
     i += 1
+    if (i == emotions.length) {
+        i = 0
+    }
 })
-
-
 
 function tts(speechText) {
     var speech = new SpeechSynthesisUtterance();
@@ -19,5 +20,3 @@ function tts(speechText) {
 
     window.speechSynthesis.speak(speech);
 }
-
-
