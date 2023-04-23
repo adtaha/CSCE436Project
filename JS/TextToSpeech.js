@@ -1,7 +1,7 @@
 
 // Get the announce button
 const announceBtn = document.querySelector('#announce')
-const emotions = [['happy', 'smiling', 'positive'], ['bored'], ['frowning', 'sad', 'negative'], ['angry', 'mad', 'negative']]
+// const emotions = [['happy', 'smiling', 'positive'], ['bored'], ['frowning', 'sad', 'negative'], ['angry', 'mad', 'negative']]
 
 let i = 0
 // Add click event listener
