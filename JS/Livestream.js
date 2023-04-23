@@ -99,7 +99,7 @@ function onloadCallback() {
 
   function onVideoStarted() {
     streaming = true;
-    startAndStop.innerText = "streaming";
+    startAndStop.innerText = "Streaming";
 
 
     /* Your code starts here */
