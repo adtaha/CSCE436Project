@@ -94,6 +94,28 @@
   transform: translateY(0);
   box-shadow: 0 0 0 #152664;
 }
+
+.home-page #d {
+  padding: 30px 20px;
+  background-color: #2542a6;
+  color: white;
+  font-weight: 700;
+  font-size: 1.5em;
+  border-radius: 8px;
+  border: transparent;
+  cursor: pointer;
+}
+
+.home-page #d:hover,
+.home-page #d:focus {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 0 #152664;
+}
+
+.home-page #d:active {
+  transform: translateY(0);
+  box-shadow: 0 0 0 #152664;
+}
 .home-page #announce {
   padding: 30px 20px;
   background-color: #2542a6;
@@ -132,6 +154,15 @@
   padding-left: 50px;
 }
 
+#myVideo {
+  width: 1px;
+  height: 1px;
+}
+
+video::-webkit-media-controls-panel {
+  display: none !important;
+  opacity: 1 !important;
+}
 /* Scale canvas with resize attribute to full size */
 canvas[resize] {
   width: 100%;

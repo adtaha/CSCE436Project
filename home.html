@@ -56,6 +56,13 @@
           <p class="emotion">Positive</p> -->
         </div>
         <button id="announce">Announce</button>
+        <button id="d"onclick="playFullscreen()">Swap Camera</button>
+        <video id="myVideo" autoplay="autoplay">
+            <source src="v.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+	    </video>
+
+	    
       </div>
 
        
@@ -86,6 +93,18 @@
             currentEmotion = currentEmotion
         }
       }, 5000); // 10000 milliseconds = 10 seconds
+
+      function playFullscreen() {
+			var videoElement = document.getElementById("myVideo");
+			videoElement.play(); // start playing the video
+			if (videoElement.requestFullscreen) {
+				videoElement.requestFullscreen();
+			} else if (videoElement.webkitRequestFullscreen) { /* Safari */
+				videoElement.webkitRequestFullscreen();
+			} else if (videoElement.msRequestFullscreen) { /* IE11 */
+				videoElement.msRequestFullscreen();
+			}
+		}
     </script>
 
     <script src="./JS/Livestream.js"></script>
